@@ -35,7 +35,7 @@ export default defineComponent({
   setup() {
     const maritalStatusModal = ref('single');
     const nationalityModel = ref(['United Arab Emirates - AE'])
-    const nationalityOptions = ['United Arab Emirates - AE', 'India - IN',]
+    const nationalityOptions = ['United Arab Emirates - AE', 'India - IN']
     return {
       maritalStatusModal,
       nationalityModel,
