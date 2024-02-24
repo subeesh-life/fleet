@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CreateNewHeader title="Create New Driver" />
+    <CreateNewHeader title="Create a New Driver" />
     <div class="q-pa-md">
       <q-stepper v-model="step" ref="stepper" alternative-labels color="primary" header-nav flat animated
         transition-next="slide-down" keep-alive vertical>
