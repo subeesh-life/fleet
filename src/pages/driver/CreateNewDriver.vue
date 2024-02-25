@@ -3,7 +3,7 @@
     <CreateNewHeader title="Hi, Let's Create a New Driver" />
     <div class="q-pa-md">
       <q-stepper
-        v-model="step"
+        v-model="DriverCreation"
         ref="stepper"
         alternative-labels
         color="primary"
@@ -99,8 +99,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import { ref } from 'vue';
+import { defineComponent, ref } from 'vue';
 import CreateNewHeader from 'src/components/global/creation/CreateNewHeader.vue';
 import LabourDesignation from 'src/components/widgets/creation/LabourDesignation.vue';
 import EmpoymentType from 'src/components/widgets/creation/EmpoymentType.vue';
@@ -123,7 +122,7 @@ export default defineComponent({
   },
   setup() {
     return {
-      step: ref(1),
+      DriverCreation: ref(1),
     };
   },
 });
