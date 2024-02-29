@@ -27,7 +27,7 @@
             outlined
             v-model="drivingClassModel"
             multiple
-            :options="drivingClass"
+            :options="drivingClassOptions"
             use-chips
             label="Choose Class"
             transition-show="scale"
@@ -40,7 +40,7 @@
             dense
             outlined
             v-model="drivingEndorsementModel"
-            :options="drivingEndorsement"
+            :options="drivingEndorsementOptions"
             label="License Endorsement"
           />
         </div>
@@ -48,28 +48,18 @@
     </q-card-section>
   </q-card>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
-export default defineComponent({
-  setup() {
-    const drivingClassModel = ref(null);
-    const drivingEndorsementModel = ref('A');
-    const drivingClass = [
-      'Light Vehicle Driving',
-      'Motorcycle Driving',
-      'Heavy Truck Driving',
-      'Heavy Bus Driving',
-      'Light Bus Driving',
-      'Heavy Vehicle Driving',
-      'Forklift Driving',
-    ];
-    const drivingEndorsement = [];
-    return {
-      drivingClassModel,
-      drivingEndorsementModel,
-      drivingClass,
-      drivingEndorsement,
-    };
-  },
-});
+<script setup>
+import { ref } from 'vue';
+const drivingClassModel = ref(null);
+const drivingClassOptions = [
+  'Light Vehicle Driving',
+  'Motorcycle Driving',
+  'Heavy Truck Driving',
+  'Heavy Bus Driving',
+  'Light Bus Driving',
+  'Heavy Vehicle Driving',
+  'Forklift Driving',
+];
+const drivingEndorsementModel = ref('A');
+const drivingEndorsementOptions = [];
 </script>

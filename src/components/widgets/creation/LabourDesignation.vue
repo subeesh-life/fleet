@@ -27,7 +27,7 @@
             dense
             outlined
             v-model="labourTitleModel"
-            :options="labourTitle"
+            :options="labourTitleOptions"
             label="Labour Title"
           />
         </div>
@@ -36,7 +36,7 @@
             dense
             outlined
             v-model="labourPositionModel"
-            :options="labourPosition"
+            :options="labourPositionOptions"
             label="Labour Position"
             transition-show="scale"
             transition-hide="scale"
@@ -47,7 +47,7 @@
             dense
             outlined
             v-model="labourLevelModel"
-            :options="labourLevel"
+            :options="labourLevelOptions"
             label="Labour Level"
             transition-show="scale"
             transition-hide="scale"
@@ -82,33 +82,19 @@
     </q-card-section>
   </q-card>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
-export default defineComponent({
-  setup() {
-    const labourTitleModel = ref(['Driver']);
-    const labourPositionModel = ref(null);
-    const labourLevelModel = ref(null);
-    const joiningDateModel = ref(null);
-
-    const labourTitle = ['Driver'];
-    const labourPosition = ['Senior Driver', 'Junior Driver'];
-    const labourLevel = [
-      'Level - 1',
-      'Level - 2',
-      'Level - 3',
-      'Level - 4',
-      'Level - 5',
-    ];
-    return {
-      labourTitleModel,
-      labourPositionModel,
-      labourLevelModel,
-      joiningDateModel,
-      labourTitle,
-      labourPosition,
-      labourLevel,
-    };
-  },
-});
+<script setup>
+import { ref } from 'vue';
+const labourTitleModel = ref(['Driver']);
+const labourTitleOptions = ['Driver'];
+const labourPositionModel = ref(null);
+const labourPositionOptions = ['Senior Driver', 'Junior Driver'];
+const labourLevelModel = ref(null);
+const labourLevelOptions = [
+  'Level - 1',
+  'Level - 2',
+  'Level - 3',
+  'Level - 4',
+  'Level - 5',
+];
+const joiningDateModel = ref(null);
 </script>

@@ -45,7 +45,7 @@
                   dense
                   clearable
                   outlined
-                  v-model="emergencyNumber"
+                  v-model="emergencyNumberModal"
                   type="tel"
                   mask="(###) ## - #######"
                   label="Telephone Number"
@@ -59,17 +59,9 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
-export default defineComponent({
-  setup() {
-    const emergencyContactModal = ref('friendsRelatives');
-
-    return {
-      emergencyContactModal,
-      fullNameModal: ref(''),
-      emergencyNumber: ref(''),
-    };
-  },
-});
+<script setup>
+import { ref } from 'vue';
+const emergencyContactModal = ref('friendsRelatives');
+const fullNameModal = ref(null);
+const emergencyNumberModal = ref(null);
 </script>

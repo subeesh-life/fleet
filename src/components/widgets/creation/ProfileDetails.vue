@@ -171,7 +171,8 @@
               outlined
               clearable
               v-model="phoneModal"
-              type="phone"
+              type="tel"
+              mask="(###) ## - #######"
               label="Contact No"
               ><template v-slot:before> <q-icon name="phone" /> </template>
               <template v-slot:append>
@@ -184,72 +185,56 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
-export default defineComponent({
-  setup() {
-    const prefixDetails = ref(null);
-    const genderModel = ref('male');
-    const genderOptions = [
-      { label: 'Male', value: 'male' },
-      { label: 'Female', value: 'female' },
-    ];
-    const firstnameModal = ref(null);
-    const lastnameModal = ref(null);
-    const birthdateModal = ref(null);
-    const countryOptionsList = [
-      'United Arab Emirates - AE',
-      'India - IN',
-      'United States - US',
-      'China - CN',
-      'Japan - JP',
-      'Germany - DE',
-      'United Kingdom - GB',
-      'France - FR',
-      'Italy - IT',
-      'Canada - CA',
-      'Australia - AU',
-      'Russia - RU',
-      'Brazil - BR',
-      'South Korea - KR',
-      'Spain - ES',
-      'Mexico - MX',
-      'Indonesia - ID',
-      'Turkey - TR',
-      'Saudi Arabia - SA',
-      'South Africa - ZA',
-    ];
-    const countryModal = ref(null);
-    const countryOptions = ref(countryOptionsList);
-    const locationModal = ref(null);
-    const unitModal = ref(null);
-    const emailModal = ref(null);
-    const phoneModal = ref(null);
-    return {
-      prefixDetails,
-      genderModel,
-      genderOptions,
-      firstnameModal,
-      lastnameModal,
-      birthdateModal,
-      countryModal,
-      countryOptions,
-      filterFn(val, update) {
-        update(() => {
-          const needle = val.toLocaleLowerCase();
-          countryOptions.value = countryOptionsList.filter(
-            (v) => v.toLocaleLowerCase().indexOf(needle) > -1
-          );
-        });
-      },
-      setModel(val) {
-        countryModal.value = val;
-      },
-      locationModal,
-      unitModal,
-      emailModal,
-      phoneModal,
-    };
-  },
-});
+<script setup>
+import { ref } from 'vue';
+
+const prefixDetails = ref(null);
+const genderModel = ref('male');
+const genderOptions = [
+  { label: 'Male', value: 'male' },
+  { label: 'Female', value: 'female' },
+];
+const firstnameModal = ref(null);
+const lastnameModal = ref(null);
+const birthdateModal = ref(null);
+const countryOptionsList = [
+  'United Arab Emirates - AE',
+  'India - IN',
+  'United States - US',
+  'China - CN',
+  'Japan - JP',
+  'Germany - DE',
+  'United Kingdom - GB',
+  'France - FR',
+  'Italy - IT',
+  'Canada - CA',
+  'Australia - AU',
+  'Russia - RU',
+  'Brazil - BR',
+  'South Korea - KR',
+  'Spain - ES',
+  'Mexico - MX',
+  'Indonesia - ID',
+  'Turkey - TR',
+  'Saudi Arabia - SA',
+  'South Africa - ZA',
+];
+const countryModal = ref(null);
+const countryOptions = ref(countryOptionsList);
+const locationModal = ref(null);
+const unitModal = ref(null);
+const emailModal = ref(null);
+const phoneModal = ref(null);
+
+const filterFn = (val, update) => {
+  update(() => {
+    const needle = val.toLowerCase();
+    countryOptions.value = countryOptionsList.filter((v) =>
+      v.toLowerCase().includes(needle)
+    );
+  });
+};
+const setModel = (val) => {
+  countryModal.value = val;
+};
 </script>

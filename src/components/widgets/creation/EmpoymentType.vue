@@ -41,14 +41,7 @@
     </q-card-section>
   </q-card>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
-export default defineComponent({
-  setup() {
-    const employeeTypeModal = ref('fullTime');
-    return {
-      employeeTypeModal,
-    };
-  },
-});
+<script setup>
+import { ref } from 'vue';
+const employeeTypeModal = ref('fullTime');
 </script>

@@ -18,7 +18,7 @@
           :name="1"
           title="Basic Details"
           icon="settings"
-          :done="step > 1"
+          :done="DriverCreation > 1"
         >
           <div class="row">
             <!-- LabourDesignation -->
@@ -52,7 +52,7 @@
           :name="2"
           title="Profile Details"
           icon="create_new_folder"
-          :done="step > 2"
+          :done="DriverCreation > 2"
         >
           <ProfileDetails />
         </q-step>
@@ -61,7 +61,7 @@
           :name="3"
           title="Benefits & Salary"
           icon="add_comment"
-          :done="step > 3"
+          :done="DriverCreation > 3"
         >
           Try out different ad text to see what brings in the most customers,
           and learn how to enhance your ads using features like ad extensions.
@@ -81,10 +81,10 @@
             <q-btn
               @click="$refs.stepper.next()"
               color="primary"
-              :label="step === 4 ? 'Finish' : 'Continue'"
+              :label="DriverCreation === 4 ? 'Finish' : 'Continue'"
             />
             <q-btn
-              v-if="step > 1"
+              v-if="DriverCreation > 1"
               flat
               color="primary"
               @click="$refs.stepper.previous()"
@@ -98,8 +98,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import CreateNewHeader from 'src/components/global/creation/CreateNewHeader.vue';
 import LabourDesignation from 'src/components/widgets/creation/LabourDesignation.vue';
 import EmpoymentType from 'src/components/widgets/creation/EmpoymentType.vue';
@@ -109,22 +109,6 @@ import EmergencyContact from 'src/components/widgets/creation/EmergencyContact.v
 import ReportingManager from 'src/components/widgets/creation/ReportingManager.vue';
 import ProfileDetails from 'src/components/widgets/creation/ProfileDetails.vue';
 
-export default defineComponent({
-  components: {
-    CreateNewHeader,
-    LabourDesignation,
-    EmpoymentType,
-    DrivingLicense,
-    MaritalStatus,
-    EmergencyContact,
-    ReportingManager,
-    ProfileDetails,
-  },
-  setup() {
-    return {
-      DriverCreation: ref(1),
-    };
-  },
-});
+const DriverCreation = ref(1);
 </script>
 <style scoped></style>
